@@ -1,9 +1,8 @@
 # react-native-movie
 
 >> please read this because im using this,  
-  > REACT NAVIGATION https://reactnavigation.org/docs/en/getting-started.html >
->> im using NATIVE BASE , 
-  > and thi is the documentation https://docs.nativebase.io/docs/GetStarted.html
+  > REACT NAVIGATION https://reactnavigation.org/docs/en/getting-started.html &nbsp;
+>> NATIVE BASE ,and thi is the documentation https://docs.nativebase.io/docs/GetStarted.html
 
 
 
