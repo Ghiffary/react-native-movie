@@ -4,7 +4,7 @@ import { createBottomTabNavigator, createAppContainer,createStackNavigator } fro
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import HomeScreen from './src/page/home';
-import SettingsScreen from './src/page/setting';
+import SettingsScreen from './src/page/setting/index';
 import ProfileScreen from './src/page/profile'
 import DetailsScreen from './src/page/home/Details'
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { FlatList, ActivityIndicator, View, Image  } from 'react-native';
+import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert  } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
 
@@ -50,12 +50,21 @@ export default class FetchExample extends Component {
     }
 
     return(
+      
       <View style={{flex: 1, paddingTop:0}}>
         <FlatList
           // initialScrollIndex={10}
           initialNumToRender={2}
           data={this.state.dataSource}
           renderItem={({item}) =>
+          <TouchableHighlight
+      // onPress={() => this._onPress(item)}
+      // // onShowUnderlay={item._embedded.show.name}
+      // onHideUnderlay={item._embedded.show.name}
+      onPress={() => Alert.alert(item._embedded.show.name) }
+      underlayColor='black'
+      
+      >
           <Card>
           <CardItem>
             <Left>
@@ -91,13 +100,14 @@ export default class FetchExample extends Component {
             </Right>
           </CardItem>
         </Card>
-          
+        </TouchableHighlight>
           }
           keyExtractor={({id}, index) => id}
         />
 
         
       </View>
+      
     );
   }
 }

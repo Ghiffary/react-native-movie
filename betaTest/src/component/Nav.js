@@ -1,19 +1,13 @@
-const Nav = createStackNavigator(
-{
-    Home: {
-        screen: HomeScreen,
-        navigationOptions: {
-            header: null
-        }
-    },
-    Details: {
-        screen: DetailsScreen,
-        
-    }
-},
-{
-    initialRouteName: 'Home'
-}
-);
+import React from 'react';
+import { CheckBox, CheckBoxProps } from 'react-native-ui-kitten';
 
-export default createAppContainer(Nav);
+export const CheckBoxShowcase = (props?: CheckBoxProps): React.ReactElement<CheckBoxProps> => {
+  return (
+    <CheckBox
+      style={styles.checkbox}
+      textStyle={styles.checkboxText}
+      text='Place your text'
+      checked={this.state.checked}
+    />
+  );
+};
