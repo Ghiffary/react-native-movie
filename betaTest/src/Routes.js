@@ -15,6 +15,7 @@ const HomeStack = createStackNavigator({
         DetailsScreen : {screen: DetailsScreen },
     // Listview : {screen:Listview},
     // tryGetJson : {screen : tryGetJson}
+
 });
 
 export default createAppContainer(createSwitchNavigator(

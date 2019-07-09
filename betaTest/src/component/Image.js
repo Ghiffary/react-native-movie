@@ -5,13 +5,18 @@ import { Image } from 'react-native-elements';
 // Standard Image
 
 export default class mage extends Component{
+  
 // Image with custom placeholder content
 render(){
+
+  return(
 <Image
-  source={ this.props.image }
-  style={{ width: 200, height: 200 }}
+  source={ {uri:this.props.url} }
+  style={{ width: 200, height: 300 }}
   PlaceholderContent={<ActivityIndicator />}
 />
+  )
 }
+
 
 }

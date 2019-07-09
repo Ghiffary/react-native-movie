@@ -3,25 +3,31 @@ import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,Stac
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 //import DetailsScreen from './Details';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
-import DetailsScreen from './Details'
+// import DetailsScreen from './Details'
 import HeaderContoh from '../../component/header'
+import Details from './Details'
 
-class Listview extends Component {
+export default class Listview extends Component {
 
 
  constructor(props){
     super(props);
-    this.state ={ isLoading: true}
+    this.state ={ isLoading: true,username: ''}
+    
+  }
+  onItemPress =(id) => {
+    const { navigate } = this.props.navigation;
+    //console.log(this.state.username);
+    navigate('DetailsScreen',{
+      Item: id,
+      otherParam: 'anything you want here'
+    });
+    // //console.log(this.props.navigation)
   }
 
   componentDidMount(){
     return fetch('http://api.tvmaze.com/schedule/full',
-    // {headers: new Headers({
-    //   'Authorization': 'Basic '+btoa('username:password'), 
-    //   'Content-Type': 'application/x-www-form-urlencoded'
-    // })
-    // // ,body: 'A=1&B=2'
-    // }
+   
     )
       .then((response) => response.json())
       .then((responseJson) => {
@@ -68,7 +74,7 @@ class Listview extends Component {
       // // onHideUnderlay={item._embedded.show.name}
       // // onPress={() => Alert.alert(item._embedded.show.name) }
       // // onPress={() => this.goToNextScreen()}
-      onPress={() => this.onItemPress()}
+      onPress={() => this.onItemPress(item._embedded.show.id)}
       // onPress={() => this.props.navigation.navigate('DetailsScreen')}
       underlayColor='black'
       
@@ -118,35 +124,7 @@ class Listview extends Component {
       
     );
   }
-  onItemPress() {
-    console.log("Pressed.");
-    this.props.navigation.navigate('DetailsScreen',{
-      itemId: 86,
-      otherParam: 'anything you want here',
-    });
-    //console.log(this.props.navigation)
-  }
+  
 
 }
 
-const HomeStack = createStackNavigator({
-
-  Home : {
-      screen: Listview,
-      navigationOptions: {
-          header: null
-      }},
-
-      DetailsScreen : {screen: DetailsScreen },
-  // Listview : {screen:Listview},
-  // tryGetJson : {screen : tryGetJson}
-});
-
-export default createAppContainer(createSwitchNavigator(
-  {
-      Home :HomeStack
-  },
-  {
-      initialRouteName : 'Home',
-  }
-));

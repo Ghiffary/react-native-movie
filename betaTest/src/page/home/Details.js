@@ -6,16 +6,18 @@
 // import Image from '../../component/Image'
 
 import React, {Component} from 'react';
-import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator  } from 'react-native';
+import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 //import DetailsScreen from './Details';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
 // import DetailsScreen from './Details'
-import HeaderContoh from '../../component/header'
+import HeaderContoh from '../../component/header';
+import Mage from '../../component/Image';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
-class DetailsScreen extends Component {
+export default class DetailsScreen extends Component {
   //   render() {
   //     return (
   //       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -32,11 +34,15 @@ class DetailsScreen extends Component {
   
   constructor(props){
     super(props);
-    this.state ={ isLoading: true}
+    this.state ={ 
+      isLoading: true, 
+      itemId: this.props.navigation.state.params.Item
+    }
+    
   }
 
   componentDidMount(){
-    return fetch('http://api.tvmaze.com/shows/3377',
+    return fetch('http://api.tvmaze.com/shows/'+this.state.itemId,
     // {headers: new Headers({
     //   'Authorization': 'Basic '+btoa('username:password'), 
     //   'Content-Type': 'application/x-www-form-urlencoded'
@@ -62,7 +68,10 @@ class DetailsScreen extends Component {
       });
   }
 
-
+  static navigationOptions = {
+    //Setting the header of the screen
+    title: 'Movie Details',
+  };
 
   render(){
     const { navigation } = this.props;
@@ -77,11 +86,25 @@ class DetailsScreen extends Component {
       )
     }
 
+    // const tes = this.state.dataSource.map((item,key)=>
+    // <Text>{item.name}</Text>
+    // );
     return(
-      
+     
       <View>
-          <Text>itemId: {JSON.stringify(itemId)}</Text>
-          <Text>otherParam: {JSON.stringify(otherParam)}</Text>
+      <ScrollView>
+             
+          <Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
+          <Text>Nama : {this.state.dataSource.name}</Text>
+          <Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
+          <Text>Nama : {this.state.dataSource.name}</Text><Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
+          <Text>Nama : {this.state.dataSource.name}</Text><Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
+          <Text>Nama : {this.state.dataSource.name}</Text><Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
+          <Text>Nama : {this.state.dataSource.name}</Text>
+</ScrollView>
+         
+
+      
       </View>
       
     );
@@ -94,24 +117,3 @@ class DetailsScreen extends Component {
 
 }
 
-const HomeStack = createStackNavigator({
-
-  Home : {
-      screen: DetailsScreen,
-      navigationOptions: {
-          header: null
-      }},
-
-      // DetailsScreen : {screen: DetailsScreen },
-  // Listview : {screen:Listview},
-  // tryGetJson : {screen : tryGetJson}
-});
-
-export default createAppContainer(createSwitchNavigator(
-  {
-      Home :HomeStack
-  },
-  {
-      initialRouteName : 'Home',
-  }
-));

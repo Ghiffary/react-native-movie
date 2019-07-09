@@ -19,130 +19,11 @@ class HomeScreen extends React.Component {
 
       <Container>
         {/* <List/> */}
-        <Listview/>
-      {/* <Content>
-        <Card>
-          <CardItem>
-            <Left>
-              <Thumbnail source={{uri: 'Image URL'}} />
-              <Body>
-                <Text>NativeBase</Text>
-                <Text note>GeekyAnts</Text>
-              </Body>
-            </Left>
-          </CardItem>
-          <CardItem cardBody>
-            <Image source={{uri: 'Image URL'}} style={{height: 200, width: null, flex: 1}}/>
-          </CardItem>
-          <CardItem>
-            <Left>
-              <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>12 Likes</Text>
-              </Button>
-            </Left>
-            <Body>
-              <Button transparent>
-                <Icon active name="chatbubbles" />
-                <Text>4 Comments</Text>
-              </Button>
-            </Body>
-            <Right>
-              <Text>11h ago</Text>
-            </Right>
-          </CardItem>
-        </Card>
-
-
-        <Card>
-          <CardItem>
-            <Left>
-              <Thumbnail source={{uri: 'Image URL'}} />
-              <Body>
-                <Text>NativeBase</Text>
-                <Text note>GeekyAnts</Text>
-              </Body>
-            </Left>
-          </CardItem>
-          <CardItem cardBody>
-            <Image source={{uri: 'Image URL'}} style={{height: 200, width: null, flex: 1}}/>
-          </CardItem>
-          <CardItem>
-            <Left>
-              <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>12 Likes</Text>
-              </Button>
-            </Left>
-            <Body>
-              <Button transparent>
-                <Icon active name="chatbubbles" />
-                <Text>4 Comments</Text>
-              </Button>
-            </Body>
-            <Right>
-              <Text>11h ago</Text>
-            </Right>
-          </CardItem>
-        </Card>
-
-
-
-        <Card>
-          <CardItem>
-            <Left>
-              <Thumbnail source={{uri: 'Image URL'}} />
-              <Body>
-                <Text>NativeBase</Text>
-                <Text note>GeekyAnts</Text>
-              </Body>
-            </Left>
-          </CardItem>
-          <CardItem cardBody>
-            <Image source={{uri: 'Image URL'}} style={{height: 200, width: null, flex: 1}}/>
-          </CardItem>
-          <CardItem>
-            <Left>
-              <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>12 Likes</Text>
-              </Button>
-            </Left>
-            <Body>
-              <Button transparent>
-                <Icon active name="chatbubbles" />
-                <Text>4 Comments</Text>
-              </Button>
-            </Body>
-            <Right>
-              <Text>11h ago</Text>
-            </Right>
-          </CardItem>
-        </Card>
-
-
-      </Content> */}
+        
+      
     </Container>
 
 
-  //     <View style={{flex:1}}>
-  //       <HeaderContoh title="Allstars" style={{}}/>
-  //       <FetchExample/>
-  //     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-  //       {/* <HeaderContoh/> */}
-       
-  //       <Text>Home!</Text>
-  //       <Button
-  //         title="Go to Settings"
-  //         onPress={() => this.props.navigation.navigate('Settings')}
-  //       />
-  //       <Button
-  //         title="Go to Details"
-  //         onPress={() => this.props.navigation.navigate('Details')}
-  //       />
-  //     </View>
-      
-  // </View>
     );
   }
 }
@@ -151,7 +32,7 @@ class HomeScreen extends React.Component {
 const Nav = createStackNavigator(
   {
       Home: {
-          screen: HomeScreen,
+          screen: Listview,
           navigationOptions: {
               header: null
           }
