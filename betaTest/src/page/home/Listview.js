@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator  } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 //import DetailsScreen from './Details';
-import { createBottomTabNavigator, createAppContainer,createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import DetailsScreen from './Details'
+import HeaderContoh from '../../component/header'
 
-export default class Listview extends Component {
+class Listview extends Component {
 
 
  constructor(props){
@@ -54,6 +56,7 @@ export default class Listview extends Component {
     return(
       
       <View style={{flex: 1, paddingTop:0}}>
+      <HeaderContoh title="Allstars Movie List" style={{}}/>
         <FlatList
           // initialScrollIndex={10}
           initialNumToRender={2}
@@ -65,8 +68,8 @@ export default class Listview extends Component {
       // // onHideUnderlay={item._embedded.show.name}
       // // onPress={() => Alert.alert(item._embedded.show.name) }
       // // onPress={() => this.goToNextScreen()}
-      // onPress={() => this.onItemPress()}
-      onPress={() => this.props.navigation.navigate('DetailsScreen')}
+      onPress={() => this.onItemPress()}
+      // onPress={() => this.props.navigation.navigate('DetailsScreen')}
       underlayColor='black'
       
       >
@@ -89,19 +92,19 @@ export default class Listview extends Component {
           </CardItem>
           <CardItem>
             <Left>
-              <Button transparent>
+              {/* <Button transparent>
                 <Icon active name="thumbs-up" />
                 <Text>12 Likes</Text>
-              </Button>
+              </Button> */}
             </Left>
             <Body>
-              <Button transparent>
+              {/* <Button transparent>
                 <Icon active name="chatbubbles" />
                 <Text>4 Comments</Text>
-              </Button>
+              </Button> */}
             </Body>
             <Right>
-              <Text>11h ago</Text>
+              <Text>Daily at {item._embedded.show.schedule.time} ({item._embedded.show.runtime} min)</Text>
             </Right>
           </CardItem>
         </Card>
@@ -117,6 +120,33 @@ export default class Listview extends Component {
   }
   onItemPress() {
     console.log("Pressed.");
+    this.props.navigation.navigate('DetailsScreen',{
+      itemId: 86,
+      otherParam: 'anything you want here',
+    });
+    //console.log(this.props.navigation)
   }
 
 }
+
+const HomeStack = createStackNavigator({
+
+  Home : {
+      screen: Listview,
+      navigationOptions: {
+          header: null
+      }},
+
+      DetailsScreen : {screen: DetailsScreen },
+  // Listview : {screen:Listview},
+  // tryGetJson : {screen : tryGetJson}
+});
+
+export default createAppContainer(createSwitchNavigator(
+  {
+      Home :HomeStack
+  },
+  {
+      initialRouteName : 'Home',
+  }
+));

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { createBottomTabNavigator, createAppContainer,createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import HomeScreen from './page/home';
-import SettingsScreen from './page/setting';
-import ProfileScreen from './page/profile';
-import DetailsScreen from './page/home/Details';
+import HomeScreen from './page/home/index.js';
+import SettingsScreen from './page/setting/index.js';
+import ProfileScreen from './page/profile/index.js';
+//import DetailsScreen from './page/home/Details';
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 
@@ -22,17 +22,18 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'nativ
 
 // export default createAppContainer(TabNavigator);
 
-const HomeStack = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Details: { screen: DetailsScreen },
-});
+// const HomeStack = createStackNavigator({
+//   Home: { screen: HomeScreen },
+//   Details: { screen: DetailsScreen },
+// });
 
 
-export default createAppContainer(createBottomTabNavigator(
+export default createBottomTabNavigator(
   {
     Home: { screen: HomeScreen },
     Settings: {screen: SettingsScreen},
     Profile:{screen: ProfileScreen},
+    
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -57,5 +58,5 @@ export default createAppContainer(createBottomTabNavigator(
       inactiveTintColor: 'gray',
     },
   }
-));
+);
 

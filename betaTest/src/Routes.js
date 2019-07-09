@@ -12,7 +12,7 @@ const HomeStack = createStackNavigator({
             header: null
         }},
 
-    DetailsScreen : {screen: DetailsScreen },
+        DetailsScreen : {screen: DetailsScreen },
     // Listview : {screen:Listview},
     // tryGetJson : {screen : tryGetJson}
 });
