@@ -4,9 +4,9 @@ import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left
 //import DetailsScreen from './Details';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
 // import DetailsScreen from './Details'
-import HeaderContoh from '../../component/header'
+import HeaderContoh from '../../components/header'
 import Details from './Details'
-
+import Input from '../../components/searchBar'
 export default class Listview extends Component {
 
 
@@ -63,6 +63,7 @@ export default class Listview extends Component {
       
       <View style={{flex: 1, paddingTop:0}}>
       <HeaderContoh title="Allstars Movie List" style={{}}/>
+      <Input/>
         <FlatList
           // initialScrollIndex={10}
           initialNumToRender={2}

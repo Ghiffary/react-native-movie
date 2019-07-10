@@ -6,14 +6,16 @@
 // import Image from '../../component/Image'
 
 import React, {Component} from 'react';
-import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator } from 'react-native';
+import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator,WebView } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 //import DetailsScreen from './Details';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
 // import DetailsScreen from './Details'
-import HeaderContoh from '../../component/header';
-import Mage from '../../component/Image';
+import HeaderContoh from '../../components/header';
+import Mage from '../../components/Image';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Tile } from 'react-native-elements';
+
 
 
 
@@ -92,20 +94,29 @@ export default class DetailsScreen extends Component {
     return(
      
       <View>
-      <ScrollView>
+        <ScrollView>
              
-          <Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
-          <Text>Nama : {this.state.dataSource.name}</Text>
-          <Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
-          <Text>Nama : {this.state.dataSource.name}</Text><Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
-          <Text>Nama : {this.state.dataSource.name}</Text><Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
-          <Text>Nama : {this.state.dataSource.name}</Text><Mage url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}/>
-          <Text>Nama : {this.state.dataSource.name}</Text>
-</ScrollView>
+          <Mage 
+          url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}
+          />
+          <Text>
+          </Text>
+          <Text>
+              Title : {this.state.dataSource.name}
+          </Text>
+          <Text>
+              description : {this.state.dataSource.summary=== null? "": this.state.dataSource.summary.replace(/<\/?[^>]+(>|$)/g, "")}
+          </Text>
+          
+          
+        </ScrollView>
          
 
       
       </View>
+      
+      // <WebView source={{html: this.state.dataSource.summary}} />
+
       
     );
   }

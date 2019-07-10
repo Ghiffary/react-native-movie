@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from "react-native-vector-icons/Ionicons";
 import { CheckBox, CheckBoxProps } from 'react-native-ui-kitten';
-import CheckBoxShowcase from '../../component/Nav'
+import CheckBoxShowcase from '../../components/Nav'
 
 
 

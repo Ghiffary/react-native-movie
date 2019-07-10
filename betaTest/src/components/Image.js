@@ -12,7 +12,7 @@ render(){
   return(
 <Image
   source={ {uri:this.props.url} }
-  style={{ width: 200, height: 300 }}
+  style={{ height: 500, objectFit: 'cover', flex: 1}}
   PlaceholderContent={<ActivityIndicator />}
 />
   )

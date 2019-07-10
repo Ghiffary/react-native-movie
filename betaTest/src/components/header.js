@@ -13,7 +13,7 @@ class HeaderContoh extends Component {
 
   render() {
       return (
-        <Header>
+        <Header style={{backgroundColor:'#f5f5f5'}}>
           <Left>
             {/* <Button transparent onPress={this.clicked}>
               <Icon name='arrow-back' />
@@ -23,7 +23,7 @@ class HeaderContoh extends Component {
             </Button>
           </Left>
           <Body style={{flex:50, justifyContent: 'center',alignItems:'center'}}>
-            <Title >{ this.props.title }</Title>
+            <Title style={{color:'#43484d'}} >{ this.props.title }</Title>
           </Body>
           <Right>
             {/* <Button transparent>
