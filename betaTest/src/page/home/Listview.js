@@ -89,6 +89,7 @@ export default class Listview extends Component {
                 
               <Text>{item._embedded.show.name}</Text>
                 <Text note>Genre {item._embedded.show.genres === null?"-":item._embedded.show.genres + " " }</Text>
+                {/* <Text></Text> */}
                 {/* <Text>{item.airtime}</Text> */}
               </Body>
             </Left>
@@ -99,11 +100,20 @@ export default class Listview extends Component {
           </CardItem>
           <CardItem>
             <Left>
-            <Rating showRating fractions="{1}" startingValue="{3.3}" />
+            <View pointerEvents="none" >
+            <Rating 
+            showRating fractions={2} 
+            startingValue={item._embedded.show.rating.average === null?"0":item._embedded.show.rating.average}
+            style={{ padding: 10 }}
+            imageSize={20}
+            ratingCount={10}
+            
+            />
               {/* <Button transparent>
                 <Icon active name="thumbs-up" />
                 <Text>12 Likes</Text>
               </Button> */}
+              </View>
             </Left>
             <Body>
               {/* <Button transparent>
