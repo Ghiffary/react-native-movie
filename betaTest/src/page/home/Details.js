@@ -1,16 +1,7 @@
-// import React from 'react';
-// import { Text, View, Button } from 'react-native';
-// import { createBottomTabNavigator, createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
-// import Icon from "react-native-vector-icons/Ionicons";
-// // import { Image } from 'react-native-elements';
-// import Image from '../../component/Image'
-
 import React, {Component} from 'react';
 import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator,WebView } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-//import DetailsScreen from './Details';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
-// import DetailsScreen from './Details'
 import HeaderContoh from '../../components/header';
 import Mage from '../../components/Image';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -20,19 +11,6 @@ import { Tile } from 'react-native-elements';
 
 
 export default class DetailsScreen extends Component {
-  //   render() {
-  //     return (
-  //       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-  //         <Text>Details!</Text>
-  //         <Image image={{uri: item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.medium}}/>
-
-  //       </View>
-  //     );
-  //   }
-  // }
-
-  // export default createAppContainer(DetailsScreen);
-
   
   constructor(props){
     super(props);
@@ -101,13 +79,14 @@ export default class DetailsScreen extends Component {
           />
           <Text>
           </Text>
-          <Text>
-              Title : {this.state.dataSource.name}
-          </Text>
-          <Text>
-              description : {this.state.dataSource.summary=== null? "": this.state.dataSource.summary.replace(/<\/?[^>]+(>|$)/g, "")}
-          </Text>
-          
+          <View style={{margin:10}}>
+                <Text>
+                    Title : {this.state.dataSource.name}
+                </Text>
+                <Text>
+                    description : {this.state.dataSource.summary=== null? "": this.state.dataSource.summary.replace(/<\/?[^>]+(>|$)/g, "")}
+                </Text>
+          </View>
           
         </ScrollView>
          

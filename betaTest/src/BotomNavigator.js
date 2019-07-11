@@ -11,23 +11,6 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 
 
-
-
-
-// const TabNavigator = createBottomTabNavigator({
-//   Home: HomeScreen,
-//   Settings: SettingsScreen,
-//   Profile:ProfileScreen,
-// });
-
-// export default createAppContainer(TabNavigator);
-
-// const HomeStack = createStackNavigator({
-//   Home: { screen: HomeScreen },
-//   Details: { screen: DetailsScreen },
-// });
-
-
 export default createBottomTabNavigator(
   {
     Home: { screen: HomeScreen },

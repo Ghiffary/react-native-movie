@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {AppRegistry} from 'react-native';
-import Appq from './src/Routes';
+import Route from './src/Routes';
 import {Root} from 'native-base';
 
 // AppRegistry.registerComponent(appName, () => App);
@@ -11,7 +11,7 @@ export default class App extends Component{
   render(){
     return(
       <Root>
-        <Appq/>
+        <Route/>
       </Root>
 
     );

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator  } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-//import DetailsScreen from './Details';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
-// import DetailsScreen from './Details'
+import { Rating, AirbnbRating } from 'react-native-elements';
 import HeaderContoh from '../../components/header'
 import Details from './Details'
 import Input from '../../components/searchBar'
+
 export default class Listview extends Component {
 
 
@@ -99,6 +99,7 @@ export default class Listview extends Component {
           </CardItem>
           <CardItem>
             <Left>
+            <Rating showRating fractions="{1}" startingValue="{3.3}" />
               {/* <Button transparent>
                 <Icon active name="thumbs-up" />
                 <Text>12 Likes</Text>
