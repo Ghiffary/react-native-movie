@@ -83,19 +83,23 @@ export default class Listview extends Component {
           <Card>
           <CardItem>
             <Left>
-              <Thumbnail source={{uri: item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.medium}} />
+              <Thumbnail 
+                source={{uri: item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.medium}} />
               {/* {console.log(item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.medium)} */}
               <Body>
                 
               <Text>{item._embedded.show.name}</Text>
-                <Text note>Genre {item._embedded.show.genres === null?"-":item._embedded.show.genres + " " }</Text>
+                <Text 
+                    note>Genre {item._embedded.show.genres === null?"-":item._embedded.show.genres + " " }</Text>
                 {/* <Text></Text> */}
                 {/* <Text>{item.airtime}</Text> */}
               </Body>
             </Left>
           </CardItem>
           <CardItem cardBody>
-            <Image source={{uri:item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.original}} style={{height: 500, objectFit: 'cover', flex: 1}}/>
+            <Image 
+            source={{uri:item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.original}} 
+            style={{height: 500, objectFit: 'cover', flex: 1}}/>
             {/* {console.log(item.image.original)} */}
           </CardItem>
           <CardItem>
