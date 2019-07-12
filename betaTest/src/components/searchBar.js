@@ -6,20 +6,18 @@ export default class App extends Component {
   state = {
     search: '',
   };
-  SearchFilterFunction(text) {
-    //passing the inserted text in textinput
-    const newData = this.arrayholder.filter(function(item) {
-      //applying filter for the inserted text in search bar
-      const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
-      const textData = text.toUpperCase();
-      return itemData.indexOf(textData) > -1;
-    });
-    this.setState({
-      //setting the filtered newData on datasource
-      //After setting the data it will automatically re-render the view
-      dataSource: newData,
-      search:text,
-    });
+  onFocus () {
+    // const {navigate} = this.props.navigation;
+    // navigate('SearchPage')
+    
+  }
+
+  onItemSearch =(search) =>{
+
+    const {navigate} = this.props.navigation;
+    navigate('SearchPage',{
+      ItemSearch:search,
+    })
   }
 
   updateSearch = search => {
@@ -38,6 +36,7 @@ export default class App extends Component {
         platform="ios"
         onChangeText={this.updateSearch}
         value={search}
+        onFocus={ () => this.onFocus() }
         containerStyle={{
         height: 60,
         borderTopWidth: 0,

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator,WebView } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { Rating, AirbnbRating } from 'react-native-elements';
 import HeaderContoh from '../../components/header';
 import Mage from '../../components/Image';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -75,10 +76,24 @@ export default class DetailsScreen extends Component {
         <ScrollView>
              
           <Mage 
-          url={this.state.dataSource.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":this.state.dataSource.image.original}
+          url={this.state.dataSource.image === null?"https://cdn.moviemovie.com.hk/teaser/og-image.jpg":this.state.dataSource.image.original}
           />
           <Text>
           </Text>
+          <View pointerEvents="none" >
+            <Rating 
+            showRating fractions={2} 
+            startingValue={this.state.dataSource.rating.average === null?"4":this.state.dataSource.rating.average}
+            style={{ padding: 10 }}
+            imageSize={20}
+            ratingCount={10}
+            
+            />
+              {/* <Button transparent>
+                <Icon active name="thumbs-up" />
+                <Text>12 Likes</Text>
+              </Button> */}
+              </View>
           <View style={{margin:10}}>
                 <Text>
                     Title : {this.state.dataSource.name}

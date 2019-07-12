@@ -7,6 +7,7 @@ import HeaderContoh from '../../components/header'
 import { Header, ThemeProvider } from 'react-native-elements';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import Listview from './Listview';
+import Searcher from '../search'
 
 
 
@@ -22,6 +23,12 @@ const Nav = createStackNavigator(
           screen: DetailsScreen,
          
       },
+      Searcher:{
+          screen: Searcher,
+          navigationOptions: {
+            header: null
+        }
+      }
       
   },
   {

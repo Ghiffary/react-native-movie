@@ -5,7 +5,9 @@ import { createBottomTabNavigator, createAppContainer,createStackNavigator, crea
 import { Rating, AirbnbRating } from 'react-native-elements';
 import HeaderContoh from '../../components/header'
 import Details from './Details'
-import Input from '../../components/searchBar'
+// import Input from '../../components/searchBar'
+import { SearchBar } from 'react-native-elements';
+
 
 export default class Listview extends Component {
 
@@ -15,6 +17,7 @@ export default class Listview extends Component {
     this.state ={ isLoading: true,username: ''}
     
   }
+
   onItemPress =(id) => {
     const { navigate } = this.props.navigation;
     //console.log(this.state.username);
@@ -24,6 +27,16 @@ export default class Listview extends Component {
     });
     // //console.log(this.props.navigation)
   }
+
+ 
+
+  onFocus() {
+    const { navigate } = this.props.navigation;
+    //console.log(this.state.username);
+    navigate('Searcher');
+  }
+
+  
 
   componentDidMount(){
     return fetch('http://api.tvmaze.com/schedule/full',
@@ -63,7 +76,18 @@ export default class Listview extends Component {
       
       <View style={{flex: 1, paddingTop:0}}>
       <HeaderContoh title="Allstars Movie List" style={{}}/>
-      <Input/>
+      {/* <Input/> */}
+      <SearchBar
+        placeholder="Type Here..."
+        platform="ios"
+        onFocus={ () => this.onFocus() }
+        containerStyle={{
+        height: 60,
+        borderTopWidth: 0,
+        paddingRight:10,
+        paddingLeft:10,
+      }}
+      />
         <FlatList
           // initialScrollIndex={10}
           initialNumToRender={2}
@@ -84,7 +108,7 @@ export default class Listview extends Component {
           <CardItem>
             <Left>
               <Thumbnail 
-                source={{uri: item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.medium}} />
+                source={{uri: item._embedded.show.image === null?"https://cdn.moviemovie.com.hk/teaser/og-image.jpg":item._embedded.show.image.medium}} />
               {/* {console.log(item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.medium)} */}
               <Body>
                 
@@ -98,7 +122,7 @@ export default class Listview extends Component {
           </CardItem>
           <CardItem cardBody>
             <Image 
-            source={{uri:item._embedded.show.image === null?"https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png":item._embedded.show.image.original}} 
+            source={{uri:item._embedded.show.image === null?"https://cdn.moviemovie.com.hk/teaser/og-image.jpg":item._embedded.show.image.original}} 
             style={{height: 500, objectFit: 'cover', flex: 1}}/>
             {/* {console.log(item.image.original)} */}
           </CardItem>
@@ -107,7 +131,7 @@ export default class Listview extends Component {
             <View pointerEvents="none" >
             <Rating 
             showRating fractions={2} 
-            startingValue={item._embedded.show.rating.average === null?"0":item._embedded.show.rating.average}
+            startingValue={item._embedded.show.rating.average === null?"4":item._embedded.show.rating.average}
             style={{ padding: 10 }}
             imageSize={20}
             ratingCount={10}
