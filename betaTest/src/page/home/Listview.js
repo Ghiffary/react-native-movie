@@ -1,15 +1,41 @@
 import React, {Component} from 'react';
-import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,StackNavigator  } from 'react-native';
-import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import {TouchableHighlight, 
+        FlatList, 
+        ActivityIndicator, 
+        View, 
+        Image, 
+        Alert,
+        StatusBar,
+        StackNavigator  } from 'react-native';
+import { Title,
+         Header,
+         Container, 
+         Content, 
+         Card, 
+         CardItem, 
+         Thumbnail, 
+         Text, 
+         Button, 
+         Icon, 
+         Left, 
+         Body, 
+         Right } from 'native-base';
+import { createBottomTabNavigator, 
+         createAppContainer,
+         createStackNavigator, 
+         createSwitchNavigator,
+         createMaterialTopTabNavigator } from 'react-navigation';
 import { Rating, AirbnbRating } from 'react-native-elements';
-import HeaderContoh from '../../components/header'
-import Details from './Details'
-// import Input from '../../components/searchBar'
-import { SearchBar } from 'react-native-elements';
+// import Details from './Details'
+// import Searching from '../../components/searchBar'
+import Input from '../../components/searchBar'
+import GeneralStatusBarColor from '../../components/style/GeneralStatusBarColor';
+import NavigationService from '../../service'
+
+// import { SearchBar } from 'react-native-elements';
 
 
-export default class Listview extends Component {
+class Listview extends Component {
 
 
  constructor(props){
@@ -19,22 +45,23 @@ export default class Listview extends Component {
   }
 
   onItemPress =(id) => {
-    const { navigate } = this.props.navigation;
-    //console.log(this.state.username);
-    navigate('DetailsScreen',{
+    NavigationService.navigate('DetailsScreen',{
       Item: id,
       otherParam: 'anything you want here'
-    });
+    })
+
+    // const { navigate } = this.props.navigation;
+    // //console.log(this.state.username);
+    // navigate('DetailsScreen',{
+    //   Item: id,
+    //   otherParam: 'anything you want here'
+    // });
     // //console.log(this.props.navigation)
   }
 
  
 
-  onFocus() {
-    const { navigate } = this.props.navigation;
-    //console.log(this.state.username);
-    navigate('Searcher');
-  }
+  
 
   
 
@@ -67,6 +94,9 @@ export default class Listview extends Component {
     if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
+        {/* <GeneralStatusBarColor 
+      backgroundColor="#ccc"
+      barStyle="dark-content"/>  */}
           <ActivityIndicator/>
         </View>
       )
@@ -75,19 +105,12 @@ export default class Listview extends Component {
     return(
       
       <View style={{flex: 1, paddingTop:0}}>
-      <HeaderContoh title="Allstars Movie List" style={{}}/>
+      {/* <GeneralStatusBarColor 
+      backgroundColor="#ccc"
+      barStyle="dark-content"/>  */}
+      
       {/* <Input/> */}
-      <SearchBar
-        placeholder="Type Here..."
-        platform="ios"
-        onFocus={ () => this.onFocus() }
-        containerStyle={{
-        height: 60,
-        borderTopWidth: 0,
-        paddingRight:10,
-        paddingLeft:10,
-      }}
-      />
+      
         <FlatList
           // initialScrollIndex={10}
           initialNumToRender={2}
@@ -167,4 +190,5 @@ export default class Listview extends Component {
   
 
 }
+export default Listview
 
