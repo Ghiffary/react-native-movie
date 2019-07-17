@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import HomeScreen from './page/home/index.js';
+import HomeScreen from './page/home/homeSlider';
 import SettingsScreen from './page/setting/index.js';
 import ProfileScreen from './page/profile/index.js';
 //import DetailsScreen from './page/home/Details';
@@ -11,7 +11,7 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 
 
-export default createBottomTabNavigator(
+export default Bot = createBottomTabNavigator(
   {
     Home: { screen: HomeScreen },
     Settings: {screen: SettingsScreen},

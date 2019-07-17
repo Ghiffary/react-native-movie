@@ -1,24 +1,35 @@
 import React, {Component} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { View } from 'native-base';
+import Listview from '../page/home/Listview';
+import { withNavigation } from 'react-navigation';
+import NavigationService from '../service'
 
-export default class App extends Component {
+
+class Sear extends Component {
   state = {
     search: '',
   };
-  onFocus () {
-    // const {navigate} = this.props.navigation;
-    // navigate('SearchPage')
+  constructor(props) {
+
+    super(props)
+
+   Obj = new Listview();
+
+  }
+  CallFunction_1 (){
+
+    // Obj.onFocus() ;
+    NavigationService.navigate('Searcher')
+
+   }
+  // onFocus () {
+  //   // const {navigate} = this.props.navigation;
+  //   // navigate('SearchPage')
     
-  }
+  // }
 
-  onItemSearch =(search) =>{
-
-    const {navigate} = this.props.navigation;
-    navigate('SearchPage',{
-      ItemSearch:search,
-    })
-  }
+ 
 
   updateSearch = search => {
     this.setState({ search });
@@ -29,14 +40,15 @@ export default class App extends Component {
 
     return (
       
-        
+        <View>
      
       <SearchBar
         placeholder="Type Here..."
         platform="ios"
         onChangeText={this.updateSearch}
         value={search}
-        onFocus={ () => this.onFocus() }
+        onFocus={this.CallFunction_1}
+        // onFocus={ () => this.onFocus() }
         containerStyle={{
         height: 60,
         borderTopWidth: 0,
@@ -44,7 +56,9 @@ export default class App extends Component {
         paddingLeft:10,
       }}
       />
-       
+       </View>
     );
   }
 }
+
+export default withNavigation(Sear);

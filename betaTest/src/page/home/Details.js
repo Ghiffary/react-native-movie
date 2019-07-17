@@ -7,6 +7,7 @@ import HeaderContoh from '../../components/header';
 import Mage from '../../components/Image';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Tile } from 'react-native-elements';
+import GeneralStatusBarColor from '../../components/style/GeneralStatusBarColor';
 
 
 
@@ -62,6 +63,9 @@ export default class DetailsScreen extends Component {
     if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
+        {/* <GeneralStatusBarColor 
+      backgroundColor="#ccc"
+      barStyle="dark-content"/>  */}
           <ActivityIndicator/>
         </View>
       )
@@ -72,12 +76,21 @@ export default class DetailsScreen extends Component {
     // );
     return(
      
+      <>
       <View>
+      
         <ScrollView>
              
           <Mage 
           url={this.state.dataSource.image === null?"https://cdn.moviemovie.com.hk/teaser/og-image.jpg":this.state.dataSource.image.original}
           />
+          <Button 
+            transparent
+            onPress={ () => this.props.navigation.navigate('Searcher',  {})}
+            >
+              <Icon name='ios-search' style={{color:'black'}}/>
+            </Button>
+          
           <Text>
           </Text>
           <View pointerEvents="none" >
@@ -108,7 +121,7 @@ export default class DetailsScreen extends Component {
 
       
       </View>
-      
+      </>
       // <WebView source={{html: this.state.dataSource.summary}} />
 
       
