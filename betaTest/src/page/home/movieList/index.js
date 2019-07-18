@@ -28,10 +28,10 @@ import { createBottomTabNavigator,
 import { Rating, AirbnbRating } from 'react-native-elements';
 // import Details from './Details'
 // import Searching from '../../components/searchBar'
-import Input from '../../components/searchBar'
-import GeneralStatusBarColor from '../../components/style/GeneralStatusBarColor';
-import NavigationService from '../../navigationRoute/service'
-import api from '../../api/url'
+import Input from '../../../components/searchBar'
+import GeneralStatusBarColor from '../../../components/style/GeneralStatusBarColor';
+import NavigationService from '../../../navigationRoute/service'
+import api from '../../../api/url'
 
 // import { SearchBar } from 'react-native-elements';
 

@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import HomeScreen from './page/home/homeSlider';
+import HomeScreen from './page/home';
 import SettingsScreen from './page/setting/index.js';
 import ProfileScreen from './page/profile/index.js';
 //import DetailsScreen from './page/home/Details';

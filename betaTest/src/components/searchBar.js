@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { View } from 'native-base';
-import Listview from '../page/home/Listview';
+import Listview from '../page/home/movieList';
 import { withNavigation } from 'react-navigation';
 import NavigationService from '../navigationRoute/service'
 

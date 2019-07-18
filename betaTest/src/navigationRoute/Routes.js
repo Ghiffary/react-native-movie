@@ -1,5 +1,5 @@
 import { createStackNavigator,createAppContainer } from 'react-navigation';
-import DetailsScreen from '../page/home/Details';
+import DetailsScreen from '../page/home/movieList/Details';
 import Searcher from '../page/search';
 import BotNav from '../BotomNavigator';
 

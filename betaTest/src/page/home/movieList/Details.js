@@ -3,12 +3,12 @@ import {TouchableHighlight, FlatList, ActivityIndicator, View, Image, Alert,Stac
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { createBottomTabNavigator, createAppContainer,createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { Rating, AirbnbRating } from 'react-native-elements';
-import HeaderContoh from '../../components/header';
-import Mage from '../../components/Image';
+import HeaderContoh from '../../../components/header';
+import Mage from '../../../components/Image';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Tile } from 'react-native-elements';
-import GeneralStatusBarColor from '../../components/style/GeneralStatusBarColor';
-import api from '../../api/url'
+import GeneralStatusBarColor from '../../../components/style/GeneralStatusBarColor';
+import api from '../../../api/url'
 
 
 
