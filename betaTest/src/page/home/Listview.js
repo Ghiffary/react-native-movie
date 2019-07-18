@@ -30,7 +30,8 @@ import { Rating, AirbnbRating } from 'react-native-elements';
 // import Searching from '../../components/searchBar'
 import Input from '../../components/searchBar'
 import GeneralStatusBarColor from '../../components/style/GeneralStatusBarColor';
-import NavigationService from '../../service'
+import NavigationService from '../../navigationRoute/service'
+import api from '../../api/url'
 
 // import { SearchBar } from 'react-native-elements';
 
@@ -47,7 +48,7 @@ class Listview extends Component {
   onItemPress =(id) => {
     NavigationService.navigate('DetailsScreen',{
       Item: id,
-      otherParam: 'anything you want here'
+    //   otherParam: 'anything you want here'
     })
 
     // const { navigate } = this.props.navigation;
@@ -66,7 +67,7 @@ class Listview extends Component {
   
 
   componentDidMount(){
-    return fetch('http://api.tvmaze.com/schedule/full',
+    return fetch(api.fullMovie,
    
     )
       .then((response) => response.json())

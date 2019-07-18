@@ -8,7 +8,7 @@ import Mage from '../../components/Image';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Tile } from 'react-native-elements';
 import GeneralStatusBarColor from '../../components/style/GeneralStatusBarColor';
-
+import api from '../../api/url'
 
 
 
@@ -24,7 +24,7 @@ export default class DetailsScreen extends Component {
   }
 
   componentDidMount(){
-    return fetch('http://api.tvmaze.com/shows/'+this.state.itemId,
+    return fetch(api.detailMovie+this.state.itemId,
     // {headers: new Headers({
     //   'Authorization': 'Basic '+btoa('username:password'), 
     //   'Content-Type': 'application/x-www-form-urlencoded'
@@ -84,12 +84,12 @@ export default class DetailsScreen extends Component {
           <Mage 
           url={this.state.dataSource.image === null?"https://cdn.moviemovie.com.hk/teaser/og-image.jpg":this.state.dataSource.image.original}
           />
-          <Button 
+          {/* <Button 
             transparent
-            onPress={ () => this.props.navigation.navigate('Searcher',  {})}
+            onPress={ () => this.props.navigation.navigate('Searcher')}
             >
               <Icon name='ios-search' style={{color:'black'}}/>
-            </Button>
+            </Button> */}
           
           <Text>
           </Text>
@@ -127,11 +127,7 @@ export default class DetailsScreen extends Component {
       
     );
   }
-  onItemPress() {
-    console.log("Pressed.");
-    this.props.navigation.navigate('DetailsScreen');
-    //console.log(this.props.navigation)
-  }
+ 
 
 }
 

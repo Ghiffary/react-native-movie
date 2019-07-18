@@ -3,7 +3,7 @@ import { Text, View} from 'react-native';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 // import Icon from "react-native-vector-icons/Ionicons";
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
-import NavigationService from '../service'
+import NavigationService from '../navigationRoute/service'
 
 
 
