@@ -1,6 +1,6 @@
 import { createStackNavigator,createAppContainer } from 'react-navigation';
-import DetailsScreen from '../page/home/movieList/Details';
-import Searcher from '../page/search';
+import DetailsScreen from '../screen/home/movieList/Details';
+import Searcher from '../screen/search';
 import BotNav from '../BotomNavigator';
 
 const TopLevelNavigator = createStackNavigator({

@@ -3,9 +3,9 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import HomeScreen from './page/home';
-import SettingsScreen from './page/setting/index.js';
-import ProfileScreen from './page/profile/index.js';
+import HomeScreen from './screen/home';
+import SettingsScreen from './screen/setting/index.js.js';
+import ProfileScreen from './screen/profile/index.js.js';
 //import DetailsScreen from './page/home/Details';
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
